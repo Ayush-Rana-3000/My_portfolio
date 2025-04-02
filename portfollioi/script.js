@@ -1,12 +1,16 @@
 // Smooth scrolling for navigation links
 document.querySelectorAll('nav ul li a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-        e.preventDefault();
         const targetId = this.getAttribute('href').substring(1);
-        document.getElementById(targetId).scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            e.preventDefault();
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
 });
 
@@ -21,21 +25,10 @@ toggleBtn.addEventListener('click', () => {
     nav.classList.toggle('active');
 });
 
-toggleBtn.addEventListener('click', () => {
-    nav.classList.toggle('active');
-});
-
+// Close menu when a link is clicked (on mobile)
 document.querySelectorAll('nav ul li a').forEach(link => {
     link.addEventListener('click', () => {
-        nav.classList.remove('active'); // Closes menu when link is clicked
-    });
-});
-
-
-// Close menu on click (for mobile)
-document.querySelectorAll('nav ul li a').forEach(link => {
-    link.addEventListener('click', () => {
-        nav.classList.remove('active');
+        nav.classList.remove('active'); 
     });
 });
 
