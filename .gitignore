@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+playwright-report/
+test-results/
+dist/
+
+# Temp / local files
+preview-server.cjs
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
